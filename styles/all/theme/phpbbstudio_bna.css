@@ -1,0 +1,74 @@
+/**
+ *
+ * phpBB Studio - Battle.net OAuth2 light. An extension for the phpBB Forum Software package.
+ *
+ * @copyright (c) 2019, phpBB Studio, https://www.phpbbstudio.com
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
+@media all and (min-width: 701px) {
+	.studio-bna-auth > .content {
+		display: flex;
+	}
+
+	.studio-bna-auth > .content > dl:not(:last-child) {
+		margin-right: 16px;
+	}
+}
+
+@media all and (max-width: 700px) {
+	.studio-bna-auth a {
+		display: block;
+	}
+}
+
+a[href$="studio_battlenet_apac"],
+a[href$="studio_battlenet_eu"],
+a[href$="studio_battlenet_cn"],
+a[href$="studio_battlenet_us"] {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	font-style: italic;
+	text-align: center;
+	background: #333333;
+	border-radius: 4px;
+	color: #f9f9f9;
+	padding: 10px 15px 5px 10px;
+}
+
+a[href$="studio_battlenet_apac"] > span,
+a[href$="studio_battlenet_eu"] > span,
+a[href$="studio_battlenet_cn"] > span,
+a[href$="studio_battlenet_us"] > span {
+	font-family: Folkard, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: normal;
+	text-transform: uppercase;
+	color: #009ae4;
+	display: block;
+	margin-bottom: -5px;
+}
+
+a[href$="studio_battlenet_apac"]:hover,
+a[href$="studio_battlenet_eu"]:hover,
+a[href$="studio_battlenet_cn"]:hover,
+a[href$="studio_battlenet_us"]:hover {
+	background: #282828;
+	border-color: #333333;
+	color: #ffffff;
+}
+
+a[href$="studio_battlenet_apac"]:hover > span,
+a[href$="studio_battlenet_eu"]:hover > span,
+a[href$="studio_battlenet_cn"]:hover > span,
+a[href$="studio_battlenet_us"]:hover > span {
+	color: #00aeff;
+}
+
+@font-face {
+	font-family: Folkard;
+	font-weight: 400;
+	font-style: normal;
+	src: url("./fonts/folkard.ttf");
+}

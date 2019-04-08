@@ -1,0 +1,47 @@
+services:
+    phpbbstudio.bna.listener:
+        class: \phpbbstudio\bna\event\listener
+        arguments:
+            - '@language'
+        tags:
+            - { name: event.listener }
+
+    phpbbstudio.bna.provider:
+        class: \phpbbstudio\bna\auth\provider\oauth\service\battlenet_base
+        abstract: true
+        arguments:
+            - '@config'
+            - '@language'
+            - '@request'
+
+    auth.provider.oauth.service.studio_battlenet_apac:
+        class: \phpbbstudio\bna\auth\provider\oauth\service\battlenet_apac
+        parent: phpbbstudio.bna.provider
+        calls:
+            - ['set_region', ['apac']]
+        tags:
+            - { name: auth.provider.oauth.service }
+
+    auth.provider.oauth.service.studio_battlenet_cn:
+        class: \phpbbstudio\bna\auth\provider\oauth\service\battlenet_cn
+        parent: phpbbstudio.bna.provider
+        calls:
+            - ['set_region', ['cn']]
+        tags:
+            - { name: auth.provider.oauth.service }
+
+    auth.provider.oauth.service.studio_battlenet_eu:
+        class: \phpbbstudio\bna\auth\provider\oauth\service\battlenet_eu
+        parent: phpbbstudio.bna.provider
+        calls:
+            - ['set_region', ['eu']]
+        tags:
+            - { name: auth.provider.oauth.service }
+
+    auth.provider.oauth.service.studio_battlenet_us:
+        class: \phpbbstudio\bna\auth\provider\oauth\service\battlenet_us
+        parent: phpbbstudio.bna.provider
+        calls:
+            - ['set_region', ['us']]
+        tags:
+            - { name: auth.provider.oauth.service }

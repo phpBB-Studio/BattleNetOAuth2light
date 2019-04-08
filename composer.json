@@ -1,0 +1,27 @@
+{
+	"name": "phpbbstudio/bna",
+	"type": "phpbb-extension",
+	"description": "Battle.net OAuth2 light for the phpBB Forum Software",
+	"homepage": "https://www.phpbbstudio.com",
+	"version": "1.0.2-beta",
+	"time": "2019-04-08",
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "phpBB Studio",
+			"email": "info@phpbbstudio.com",
+			"homepage": "https://www.phpbbstudio.com/"
+		}
+	],
+	"require": {
+		"php": ">=5.4.7",
+		"phpbb/phpbb": ">=3.2.5",
+		"composer/installers": "~1.0"
+	},
+	"extra": {
+		"display-name": "phpBB Studio - Battle.net OAuth2 light",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.2.5,<3.3"
+		}
+	}
+}

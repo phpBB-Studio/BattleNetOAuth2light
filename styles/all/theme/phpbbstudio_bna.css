@@ -27,13 +27,13 @@ a[href$="studio_battlenet_eu"],
 a[href$="studio_battlenet_cn"],
 a[href$="studio_battlenet_us"] {
 	font-family: Arial, sans-serif;
-	font-size: 16px;
+	font-size: inherit;
 	font-style: italic;
 	text-align: center;
 	background: #333333;
 	border-radius: 4px;
 	color: #f9f9f9;
-	padding: 10px 15px 5px 10px;
+	padding: 8px 8px 2px 6px;
 }
 
 a[href$="studio_battlenet_apac"] > span,
@@ -41,13 +41,13 @@ a[href$="studio_battlenet_eu"] > span,
 a[href$="studio_battlenet_cn"] > span,
 a[href$="studio_battlenet_us"] > span {
 	font-family: Folkard, sans-serif;
-	font-size: 24px;
-	font-weight: bold;
+	font-size: 10px;
+	font-weight: 600;
 	font-style: normal;
 	text-transform: uppercase;
 	color: #009ae4;
 	display: block;
-	margin-bottom: -5px;
+	line-height: 0.9;
 }
 
 a[href$="studio_battlenet_apac"]:hover,

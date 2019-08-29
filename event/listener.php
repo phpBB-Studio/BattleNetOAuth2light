@@ -16,24 +16,10 @@ namespace phpbbstudio\bna\event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Listener.
+ * Setup listener.
  */
 class listener implements EventSubscriberInterface
 {
-	/**
-	 * Assign functions defined in this class to event listeners in the core.
-	 *
-	 * @static
-	 * @return array
-	 * @access public
-	 */
-	public static function getSubscribedEvents()
-	{
-		return [
-			'core.user_setup_after'		=> 'studio_bna_setup_lang',
-		];
-	}
-
 	/** @var \phpbb\language\language */
 	protected $language;
 
@@ -50,7 +36,19 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	 * Load extension language file during user set up.
+	 * Assign functions defined in this class to event listeners in the core.
+	 *
+	 * @static
+	 * @return array
+	 * @access public
+	 */
+	public static function getSubscribedEvents()
+	{
+		return ['core.user_setup_after' => 'studio_bna_setup_lang'];
+	}
+
+	/**
+	 * Load extension language file after the user has been set up.
 	 *
 	 * @event  core.user_setup_after
 	 * @return void

@@ -41,7 +41,11 @@ class battlenet_base extends base
 	 * @return void
 	 * @access public
 	 */
-	public function __construct(\phpbb\config\config $config, \phpbb\language\language $lang, \phpbb\request\request $request)
+	public function __construct(
+		\phpbb\config\config $config,
+		\phpbb\language\language $lang,
+		\phpbb\request\request $request
+	)
 	{
 		$this->config	= $config;
 		$this->lang		= $lang;
@@ -67,10 +71,10 @@ class battlenet_base extends base
 	 */
 	public function get_service_credentials()
 	{
-		return array(
+		return [
 			'key'		=> $this->config["auth_oauth_studio_battlenet_{$this->region}_key"],
 			'secret'	=> $this->config["auth_oauth_studio_battlenet_{$this->region}_secret"],
-		);
+		];
 	}
 
 	/**
@@ -80,10 +84,10 @@ class battlenet_base extends base
 	{
 		if (!($this->service_provider instanceof $this->class))
 		{
-			throw new exception('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE');
+			throw new exception($this->lang->lang('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE'));
 		}
 
-		// This was a callback request from battlenet, get the token
+		/** This was a callback request from battlenet, get the token */
 		try
 		{
 			$this->service_provider->requestAccessToken($this->request->variable('code', ''));
@@ -95,7 +99,7 @@ class battlenet_base extends base
 
 		$result['battletag'] = '';
 
-		// Send a request with it
+		/** Send a request with it */
 		try
 		{
 			$result = json_decode($this->service_provider->request('oauth/userinfo'), true);
@@ -105,7 +109,7 @@ class battlenet_base extends base
 			trigger_error($this->lang->lang('STUDIO_BNA_EXCEPTION_USER_INFO', $e->getMessage()), E_USER_WARNING);
 		}
 
-		// Return the unique identifier returned from battlenet
+		/** Return the unique identifier returned from battlenet */
 		return $result['battletag'];
 	}
 
@@ -116,12 +120,12 @@ class battlenet_base extends base
 	{
 		if (!($this->service_provider instanceof $this->class))
 		{
-			throw new exception('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE');
+			throw new exception($this->lang->lang('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE'));
 		}
 
 		$result['battletag'] = '';
 
-		// Send a request with it
+		/** Send a request with it */
 		try
 		{
 			$result = json_decode($this->service_provider->request('oauth/userinfo'), true);
@@ -131,7 +135,7 @@ class battlenet_base extends base
 			trigger_error($this->lang->lang('STUDIO_BNA_EXCEPTION_USER_INFO', $e->getMessage()), E_USER_WARNING);
 		}
 
-		// Return the unique identifier returned from battlenet
+		/** Return the unique identifier returned from battlenet */
 		return $result['battletag'];
 	}
 }
